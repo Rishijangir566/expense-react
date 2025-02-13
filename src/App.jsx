@@ -16,6 +16,7 @@ function App() {
     setRemain(input)
     setInput("")
   }
+
   //  const totalExpenses = info.reduce((sum, item) => sum + Number(item.expenseAmt), 0);
   //  const remain = total - totalExpenses;
 
@@ -30,11 +31,11 @@ function App() {
     }
 
     else {
-      const obj = { expenseName: name, expenseAmt: amount, count: count + 1 }
+      const obj = { expenseName: name, expenseAmt: amount, count: count+1 }
       setInfo([...info, obj])
       setspent(spent + Number(amount))
       setCount(count + 1)
-      setRemain(amount === 0 ? total - amount : remain - amount)
+      setRemain(remain - amount)
       setName("")
       setAmount('')
     }
@@ -49,9 +50,11 @@ function App() {
           <form action="">
             <input type="number" placeholder='Total Amount' value={input} onChange={(e) => setInput(e.target.value)} /><br />
             <button onClick={addMoney}> Set Budget</button>  </form>
+            <div>
           <h2>Total :{total} </h2>
           <h2>spent :{spent} </h2>
           <h2>Remain :{remain}</h2>
+            </div>
 
           <form onSubmit={AddAmount}>
             <input type="text" placeholder='expense name ' value={name} onChange={(e) => setName(e.target.value)} required /><br />
@@ -64,14 +67,14 @@ function App() {
         <table className='table'>
           <thead>
             <tr>
-              <th> S.N</th> <th>Info </th> <th>Amount</th>
+              <th className='head'> S.N</th> <th className='head'>Info </th> <th className='head'>Amount</th>
             </tr>
           </thead>
           {
             info.length > 0 ? (
               info.map((item, index) => {
                 return <tbody key={index}>
-                  <td>{item.count} </td> <td>{item.expenseName}  </td><td>{item.expenseAmt} </td>
+                  <td className='body'>{item.count} </td> <td className='body'>{item.expenseName}  </td><td className='body'>{item.expenseAmt} </td>
                 </tbody>
               })
             ) : ""

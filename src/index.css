@@ -1,13 +1,18 @@
-table thead tr th{
-  margin: 2rem 5rem ;
-  border: 2px solid red;
-  padding: 2px 4px;
+.head{
+  width: 200px;
+  border: 2px solid violet;
+}
+.body{
+  
+  width: 200px;
+  border: 2px solid rgb(41, 235, 51);
 }
 table{
   margin-top: 2rem;
   border: 1px solid black;
   padding: 1rem;
-  margin-left: 35%;
+  text-align: center;
+  /* margin-left: 5%; */
 }
  
 button{
@@ -36,6 +41,7 @@ input{
 }
 .show{
   display: flex;
+  justify-content: space-evenly;
 }
 form,h2{
   margin:0 1rem;
